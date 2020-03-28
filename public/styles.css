@@ -74,7 +74,7 @@ header div {
     box-shadow: 0px 2px 6px 10px rgba(0, 0 , 0, 0.2);
 
     /* animation */
-    animation: up 200ms ease-out;
+    animation: up 100ms ease-out;
 }
 
 @keyframes up {
@@ -178,3 +178,74 @@ a.edit {
     text-align: center;
     text-decoration: none;
 }
+
+#form-delete button[type="submit"] {
+    margin-top: 8px;
+    background-color: lightcoral;
+}
+
+/* INDEX INSTRUCTORS */
+.table-container {
+    display: block;
+    padding: 40px;
+    box-sizing: border-box;
+}
+
+.table-container table {
+    width: 100%;
+    border-spacing: 0;
+}
+
+.table-container thead {
+    text-align: left;
+    font-size: 18px;
+    font-weight: bold;
+    
+}
+
+.table-container thead th {
+    padding: 8px;
+    border-bottom: 1px solid #d9d9d9;
+    text-transform: uppercase;
+    color: #777;
+}
+
+.table-container td {
+    padding: 8px;
+    border-bottom: 1px solid #d9d9d9;
+    width: 48px;
+    height: 48px;
+    vertical-align: middle;
+}
+
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+tbody tr td:last-child a {
+    background-color: var(--primary-color);
+    padding: 8px 16px;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: white;
+    font-size: 12px;
+    border-radius: 8px;
+}
+
+.table-container thead tr th:last-child, td:last-child {
+    text-align: center;
+}
+
+.text-container tbody tr td .edit-services{
+    padding: 8px 16px;
+    background-color: var(--secondary-color);
+    border-radius: 16px;
+    color: #777;
+    margin-right: 4px;
+    margin-top: 8px;
+    display: inline-block;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 12px;
+}
+

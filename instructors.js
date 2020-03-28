@@ -2,6 +2,12 @@ const fs = require('fs')
 const data = require('./data.json')
 const moment = require('moment')
 
+//INDEX
+exports.index = (req, res) => {
+
+    return res.render("instructors/index", { instructors: data.instructors })
+}
+
 //create instructors
 exports.postCreate = (req, res) => {
     const keys = Object.keys(req.body)
@@ -88,9 +94,26 @@ exports.putSaveEdit = (req, res) => {
 
     data.instructors[id - 1] = instructor
 
-    fs.writeFile("data,jason", JSON.stringify(data, null, 2), (err) => {
+    fs.writeFile("data.json", JSON.stringify(data, null, 2), (err) => {
         if (err) return res.send("Write error!")
 
         return res.redirect(`/instructors/${id}`)
+    })
+}
+
+//DELETE
+exports.delete = (req, res) => {
+    const { id } = req.body
+
+    const filteredInstructors = data.instructors.filter((instructor) => {
+        return instructor.id != id
+    })
+
+    data.instructors = filteredInstructors
+
+    fs.writeFile("data.json", JSON.stringify(data, null, 2), (err) => {
+        if (err) return res.send("Write error!")
+
+        return res.redirect('/instructors')
     })
 }
