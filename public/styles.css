@@ -5,7 +5,7 @@
     --secondary-color: #F7DF1E;
 }
 
-body {
+html body {
     background-color: var(--primary-color);
     font-family: 'Roboto', sans-serif;
 }
@@ -18,30 +18,30 @@ header div {
     box-sizing: border-box;
 }
 
-.links {
+#links {
     font-size: 22px;
 }
 
-.links a + a {
+#links a + a {
     margin-left: 32px;
 }
 
-.links a {
+#links a {
     text-decoration: none;
     color: #777;
     position: relative;
 }
 
-.links a.active {
+#links a.active {
     font-weight: bold;
     color: var(--primary-color);
 }
 
-.links a:hover {
+#links a:hover {
     color: var(--primary-color);
 }
 
-.links a::after {
+#links a::after {
     content: "";
     width: 0;
     height: 2px;
@@ -51,7 +51,7 @@ header div {
     bottom: -4px;
 }
 
-.links a:hover::after {
+#links a:hover::after {
     width: 100%;
     transition: width 500ms ease-in-out;
 }
@@ -198,9 +198,8 @@ a.edit {
 
 .table-container thead {
     text-align: left;
-    font-size: 18px;
+    font-size: 12px;
     font-weight: bold;
-    
 }
 
 .table-container thead th {
@@ -213,18 +212,20 @@ a.edit {
 .table-container td {
     padding: 8px;
     border-bottom: 1px solid #d9d9d9;
-    width: 48px;
-    height: 48px;
+    width: 26px;
+    height: 26px;
     vertical-align: middle;
+    font-size: 12px;
 }
 
 tbody tr:last-child td {
     border-bottom: none;
 }
 
-tbody tr td:last-child a {
+tbody tr td:last-child a,
+body .table-container > a {
     background-color: var(--primary-color);
-    padding: 8px 16px;
+    padding: 4px 16px;
     text-decoration: none;
     text-transform: uppercase;
     color: white;
@@ -232,20 +233,29 @@ tbody tr td:last-child a {
     border-radius: 8px;
 }
 
+body .table-container > a {
+    margin-bottom: 12px;
+    width: max-content;
+}
+
 .table-container thead tr th:last-child, td:last-child {
     text-align: center;
 }
 
-.text-container tbody tr td .edit-services{
-    padding: 8px 16px;
-    background-color: var(--secondary-color);
-    border-radius: 16px;
-    color: #777;
-    margin-right: 4px;
-    margin-top: 8px;
-    display: inline-block;
-    font-weight: bold;
-    text-transform: uppercase;
+.dataTables_length label {
+    font-size: 12px;
+}
+
+.dataTables_filter label {
+    font-size: 12px;
+    border-bottom: 1px solid #d9d9d9;
+}
+
+.dataTables_info {
+    font-size: 12px;
+}
+
+#table-instructors_paginate {
     font-size: 12px;
 }
 

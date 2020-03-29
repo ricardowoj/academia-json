@@ -1,14 +1,21 @@
 const fs = require('fs')
-const data = require('./data.json')
+const data = require('../data.json')
 const moment = require('moment')
 
 //INDEX
 exports.index = (req, res) => {
 
-    return res.render("instructors/index", { instructors: data.instructors })
+    return res.render("members/index", { members: data.members })
 }
 
-//create instructors
+// Show create
+exports.create = (req, res) => {
+
+    return res.render("members/create")
+    
+}
+
+// Create members
 exports.postCreate = (req, res) => {
     const keys = Object.keys(req.body)
 
@@ -22,9 +29,9 @@ exports.postCreate = (req, res) => {
     
     birth = moment(req.body.birth).format('YYYY-MM-DD')
     created_at = moment().format('YYYY-MM-DD')
-    id = Number(data.instructors.length +1)
+    id = Number(data.members.length +1)
 
-    data.instructors.push({
+    data.members.push({
         id,
         avatar_url,
         name,
@@ -36,17 +43,17 @@ exports.postCreate = (req, res) => {
 
     fs.writeFile("data.json", JSON.stringify(data, null, 2), (err) => {
         if (err) return res.send("Escrita do arquivo com erro.")
-        return res.redirect("/instructors")
+        return res.redirect("/members")
     })
     
 }
 
-//Show instructors
+// Show members
 exports.getShow = (req,res) => {
 
     const { id } = req.params
 
-    const foundInstructor = data.instructors.find((instructor) => {
+    const foundInstructor = data.members.find((instructor) => {
         return id == instructor.id //return true ou false
     })
 
@@ -61,27 +68,27 @@ exports.getShow = (req,res) => {
 
     }
     
-    return res.render("instructors/show", { instructor })
+    return res.render("members/show", { instructor })
 }
 
 // Edit
 exports.getEdit = (req, res) => {
     const { id } = req.params
 
-    const foundInstructor = data.instructors.find((instructor) => {
+    const foundInstructor = data.members.find((instructor) => {
         return id == instructor.id //return true ou false
     })
 
     if (!foundInstructor) return res.send("Instrutor não localizado.")
 
-    return res.render('instructors/edit', { instructor: foundInstructor })
+    return res.render('members/edit', { instructor: foundInstructor })
 }
 
 // PUT
 exports.putSaveEdit = (req, res) => {
     const { id } = req.body
 
-    const foundInstructor = data.instructors.find((instructor) => {
+    const foundInstructor = data.members.find((instructor) => {
         return id == instructor.id //return true ou false
     })
 
@@ -92,28 +99,28 @@ exports.putSaveEdit = (req, res) => {
         ...req.body
     }
 
-    data.instructors[id - 1] = instructor
+    data.members[id - 1] = instructor
 
     fs.writeFile("data.json", JSON.stringify(data, null, 2), (err) => {
         if (err) return res.send("Write error!")
 
-        return res.redirect(`/instructors/${id}`)
+        return res.redirect(`/members/${id}`)
     })
 }
 
-//DELETE
+// DELETE
 exports.delete = (req, res) => {
     const { id } = req.body
 
-    const filteredInstructors = data.instructors.filter((instructor) => {
+    const filteredInstructors = data.members.filter((instructor) => {
         return instructor.id != id
     })
 
-    data.instructors = filteredInstructors
+    data.members = filteredInstructors
 
     fs.writeFile("data.json", JSON.stringify(data, null, 2), (err) => {
         if (err) return res.send("Write error!")
 
-        return res.redirect('/instructors')
+        return res.redirect('/members')
     })
 }
