@@ -5,21 +5,23 @@
             <title>Admin Academia</title>
         {% endblock %}
 
-        <link rel="stylesheet" href="/styles.css">
-        <link rel="stylesheet" href="/reset.css">
+        <link rel="stylesheet" href="/css/styles.css">
+        <link rel="stylesheet" href="/css/reset.css">
 
     </head>
     <body>
         <header>
             <div id = "links">
                 <a href="/instructors">Instrutores</a>
-                <a href="/members">Membros</a>
+                <a href="/students">Alunos</a>
             </div>
         </header>
 
         {% block content %}{% endblock %}
 
-        <script src="/script.js"></script>
+        <script src="/js/script.js"></script>
+        <script src="/js/zipCode.js"></script>
+        
 
     </body>
 </html>

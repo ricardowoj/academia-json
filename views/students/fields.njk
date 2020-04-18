@@ -1,0 +1,83 @@
+
+<div class="item">
+    <div>Avatar URL</div>
+    <div>
+        <input type="url" name="avatar_url" placeholder="http://" value="{{ student.avatar_url }}">
+    </div>
+</div>
+
+<div class="item">
+    <div>Nome</div>
+    <div>
+        <input type="text" name="name" placeholder="" value="{{ student.name }}">
+    </div>
+</div>
+
+<div class="item">
+    <div>E-mail</div>
+    <div>
+        <input type="email" name="email" placeholder="" value="{{ student.email }}">
+    </div>
+</div>
+
+<div class="item">
+    <div>Data de nascimento</div>
+    <input type="date" name="birth" value="{{ student.birth }}">
+</div>
+<div class="item">
+    <div>Sexo</div>
+    <div>
+        <span>
+            <input type="radio" name="gender" value="Male" {% if instructor.gender == 'Male' %} checked="checked" {% endif %}>Masculino
+        </span>
+
+        <span>
+            <input type="radio" name="gender" value="Female" {% if instructor.gender == 'Female' %} checked="checked" {% endif %}>Feminino
+        </span>
+    </div>
+</div>
+
+<div class="item">
+    <div>Atividades de interesse</div>
+    <div>
+        <input type="text" name="activities" placeholder="Separe as atividades por vírgula" value="{{ student.activities }}">
+    </div>
+</div>
+
+<form>
+
+    <div class="item">
+        <div>CEP</div>
+        <input id="zip" type="text" name="zip" value="{{ student.zip }}">
+    </div>
+
+    <div class="item">
+        <div>Cidade</div>
+        <input id="city" type="text" name="city" value="{{ student.city }}">
+    </div>
+
+    <div class="item">
+        <div>Estado</div>
+        <input id="state" type="text" name="state" value="{{ student.state }}">
+    </div>
+
+    <div class="item">
+        <div>Bairro</div>
+        <input id="neighborhood" type="text" name="neighborhood" value="{{ student.neighborhood }}">
+    </div>
+
+    <div class="item">
+        <div>Rua</div>
+        <input id="street" type="text" name="street" value="{{ student.street }}">
+    </div>
+
+    <div class="item">
+        <div>Complemento</div>
+        <input id="complement" type="text" name="complement" value="{{ student.complement }}">
+    </div>
+
+    <button type="submit">Salvar</button>
+
+</form>
+
+<script src="/zip-code.js"></script>

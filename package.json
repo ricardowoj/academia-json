@@ -12,6 +12,7 @@
   "author": "Ricardo Wojciechowski",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.19.2",
     "express": "^4.17.1",
     "i": "^0.3.6",
     "method-override": "^3.0.0",

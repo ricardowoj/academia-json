@@ -1,0 +1,34 @@
+{
+  "students": [
+    {
+      "id": 1,
+      "avatar_url": "http://www.uol.com",
+      "name": "teste",
+      "email": "ricardo@uol.com",
+      "birth": "0022-02-22",
+      "gender": "Male",
+      "activities": "teste, teste2, teste3",
+      "zip": "333333",
+      "city": "teste",
+      "state": "teste",
+      "neighborhood": "tttt",
+      "street": "tttt",
+      "complement": "tttt"
+    },
+    {
+      "id": 22,
+      "avatar_url": "https://scontent.fcgh16-1.fna.fbcdn.net/v/t1.0-9/11169890_422482534588399_207220030938873019_n.jpg?_nc_cat=102&_nc_sid=daf655&_nc_ohc=kHuUI4aT_uEAX-AJAmX&_nc_ht=scontent.fcgh16-1.fna&oh=6c225f36498880862d5fb3f666f7dc5d&oe=5EA7E938",
+      "name": "Ricardo Wojciechowski",
+      "email": "ricardowoj@hotmail.com",
+      "birth": "1985-01-23",
+      "gender": "Male",
+      "activities": "corrida, musculação",
+      "zip": "06509012",
+      "city": "Santana de Parnaíba",
+      "state": "São Paulo",
+      "neighborhood": "Suru",
+      "street": "Quiruá",
+      "complement": "Cond. New Ville"
+    }
+  ]
+}

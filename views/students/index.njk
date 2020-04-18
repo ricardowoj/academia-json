@@ -3,21 +3,21 @@
 {% block content %}
 
 <div class="card table-container" style="width:60%">
-    <a href="/instructors/create">novo instrutor</a>
+    <a href="/students/create">novo aluno</a>
     <table id="table-instructors" class="table table-striped table-hover">
         <thead>
             <tr>
-                <th>Instrutor</th>
-                <th>Atendimento</th>
+                <th>Aluno</th>
+                <th>Atividades</th>
                 <th>Modificar</th>
             </tr>
         </thead>
         <tbody>
-            {% for instructor in instructors %}
+            {% for student in students %}
             <tr>
-                <td>{{ instructor.name }}</td>
-                <td class="edit-services">{{ instructor.services }}</td>
-                <td><a href="/instructors/{{instructor.id}}">Visualizar</a></td>
+                <td>{{ student.name }}</td>
+                <td class="edit-services">{{ student.activities }}</td>
+                <td><a href="/students/{{student.id}}">Visualizar</a></td>
             </tr>
             {% endfor %}
         </tbody>

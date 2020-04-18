@@ -1,5 +1,5 @@
 const fs = require('fs')
-const data = require('../data.json')
+const data = require('../json/instructors.json')
 const moment = require('moment')
 
 //INDEX
@@ -9,7 +9,7 @@ exports.index = (req, res) => {
 }
 
 // Show create
-exports.create = (req, res) => {
+exports.getCreate = (req, res) => {
 
     return res.render("instructors/create")
 
@@ -41,7 +41,7 @@ exports.postCreate = (req, res) => {
         created_at
     })
 
-    fs.writeFile("data.json", JSON.stringify(data, null, 2), (err) => {
+    fs.writeFile("/json/instructors.json", JSON.stringify(data, null, 2), (err) => {
         if (err) return res.send("Escrita do arquivo com erro.")
         return res.redirect("/instructors")
     })
@@ -49,7 +49,7 @@ exports.postCreate = (req, res) => {
 }
 
 // Show instructors
-exports.getShow = (req,res) => {
+exports.showCreate = (req,res) => {
 
     const { id } = req.params
 
@@ -62,8 +62,8 @@ exports.getShow = (req,res) => {
     const instructor = {
         ...foundInstructor,
         services: foundInstructor.services.split(","),
-        birth: moment(foundInstructor.birth).format('DD/MM/YYYY'),
         created_at: moment(foundInstructor.created_at).format('DD/MM/YYYY'),
+        birth: moment(foundInstructor.birth).format('DD/MM/YYYY'),
         birth: moment().diff(foundInstructor.birth, 'years',false)
 
     }
@@ -72,7 +72,7 @@ exports.getShow = (req,res) => {
 }
 
 // Edit
-exports.getEdit = (req, res) => {
+exports.editCreate = (req, res) => {
     const { id } = req.params
 
     const foundInstructor = data.instructors.find((instructor) => {
@@ -85,7 +85,7 @@ exports.getEdit = (req, res) => {
 }
 
 // PUT
-exports.putSaveEdit = (req, res) => {
+exports.putCreate = (req, res) => {
     const { id } = req.body
 
     const foundInstructor = data.instructors.find((instructor) => {
@@ -101,7 +101,7 @@ exports.putSaveEdit = (req, res) => {
 
     data.instructors[id - 1] = instructor
 
-    fs.writeFile("data.json", JSON.stringify(data, null, 2), (err) => {
+    fs.writeFile("/json/students.json", JSON.stringify(data, null, 2), (err) => {
         if (err) return res.send("Write error!")
 
         return res.redirect(`/instructors/${id}`)
@@ -118,7 +118,7 @@ exports.delete = (req, res) => {
 
     data.instructors = filteredInstructors
 
-    fs.writeFile("data.json", JSON.stringify(data, null, 2), (err) => {
+    fs.writeFile("/json/instructors.json", JSON.stringify(data, null, 2), (err) => {
         if (err) return res.send("Write error!")
 
         return res.redirect('/instructors')

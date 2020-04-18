@@ -1,0 +1,87 @@
+{% extends "layout.njk" %}
+
+{% block content %}
+
+    <div class="card">
+
+        <section class="avatar" style="background: url({{ student.avatar_url }}}) no-repeat center center / cover"></section>
+
+        <section class="details">
+
+            <h3 class="class">Detalhes</h3>
+
+            <div class="item">
+                <div>Nome</div>
+                <div>{{ student.name }}</div>
+            </div>
+
+            <div class="item">
+                <div>E-mail</div>
+                <div>{{ student.email }}</div>
+            </div>
+
+            <div class="item">
+                <div>Idade</div>
+                <div>{{ student.birth }}</div>
+            </div>
+
+            <div class="item">
+                <div>Sexo</div>
+                <div>{{ student.gender }}</div>
+            </div>
+
+            <div class="item">
+                <div>Atividades</div>
+                <div>
+                    {% for activite in student.activities %}
+                        <span>{{ activite }}</span>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="item">
+                <div>CEP</div>
+                <div>{{ student.zip }}</div>
+            </div>
+
+            <div class="item">
+                <div>Cidade</div>
+                <div>{{ student.city }}</div>
+            </div>
+
+            <div class="item">
+                <div>Estado</div>
+                <div>{{ student.state }}</div>
+            </div>
+
+            <div class="item">
+                <div>Bairro</div>
+                <div>{{ student.neighborhood }}</div>
+            </div>
+
+            <div class="item">
+                <div>Desde</div>
+                <div>{{ student.created_at }}</div>
+            </div>
+
+            <div class="item">
+                <div>Rua</div>
+                <div>{{ student.street }}</div>
+            </div>
+
+            <div class="item">
+                <div>Complemento</div>
+                <div>{{ student.complement }}</div>
+            </div>
+
+            <div class="item">
+                <div>Desde</div>
+                <div>{{ student.created_at }}</div>
+            </div>
+
+            <a href="/students/{{ student.id }}/edit" class="edit">Editar</a>
+
+        </section>
+    </div>
+
+{% endblock content %}

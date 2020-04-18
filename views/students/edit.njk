@@ -10,15 +10,15 @@
 
         <section class="details">
             <form action="/instructors?_method=PUT" method="POST" >
-                <h3 class="class">Editar instrutor</h3>
+                <h3 class="class">Editar students</h3>
 
-                {% include 'instructors/fields.njk' %}
+                {% include 'students/fields.njk' %}
 
-                <input type="hidden" name="id" value="{{instructor.id}}">
+                <input type="hidden" name="id" value="{{student.id}}">
             </form>
 
-            <form id="form-delete"action="/instructors?_method=DELETE" method="POST" >
-                <input type="hidden" name="id" value="{{instructor.id}}">
+            <form id="form-delete"action="/students?_method=DELETE" method="POST" >
+                <input type="hidden" name="id" value="{{student.id}}">
                 <button type="submit">Deletar</button>
             </form>
 

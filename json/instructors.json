@@ -1,5 +1,4 @@
 {
-  "members": [],
   "instructors": [
     {
       "id": "1",
@@ -180,6 +179,21 @@
       "gender": "Female",
       "services": "MMA",
       "created_at": "2020-02-29"
+    },
+    {
+      "id": 21,
+      "avatar_url": "http://www.teste.com",
+      "name": "teste",
+      "email": "teste@uol.com",
+      "birth": "2222-02-22",
+      "gender": "Male",
+      "activities": "teste",
+      "zip": "0366",
+      "city": "teste",
+      "state": "teste",
+      "neighborhood": "ttt",
+      "street": "ttt",
+      "complement": "tttt"
     }
   ]
 }
